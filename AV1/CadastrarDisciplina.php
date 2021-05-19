@@ -49,8 +49,8 @@
             <div class="form-row">
 
                 <div class="form-group">
-                <label for="Disciplina1">Nome</label>
-                <input type="text" class="form-control" id="Disciplina1" placeholder="Nome da Disciplina" name="nome">
+                <label for="Disciplina">Nome</label>
+                <input type="text" class="form-control" id="Disciplina" placeholder="Nome da Disciplina" name="nome">
                 </div>
 
                 <div class="form-group">
@@ -76,6 +76,7 @@
                     <input type="number" class="form-control" id="creditos" placeholder="Quantidade de créditos" name="creditos"><br><br>
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a class="btn btn-danger" href="index.html" role="button">Cancelar</a>
             </div>
         </form>
     </div>
