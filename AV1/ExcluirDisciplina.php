@@ -24,7 +24,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <title>Cadastrar Disciplina</title>
+    <title>Excluir Disciplina</title>
 </head>
 <body>
     <div class="container">
@@ -39,7 +39,7 @@
         </nav>
         <br><br>
         <div class="nav" align="center">
-            <h3>Cadastrar Disciplina</h3>
+            <h3>Excluir Disciplina</h3>
         </div>
         <form action="cadastraDisciplina.php" method="POST">
             <div class="form-row">
