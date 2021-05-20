@@ -16,10 +16,9 @@
         $preRequisito = $_POST["preRequisito"];
         $creditos = $_POST["creditos"];
 
-        $sql = "UPDATE disciplinas SET nome='$nome',periodo = '$periodo', idPreRequisito='$preRequisito', creditos='$creditos' WHERE nome='$nomeOld'";
+        $sql = "UPDATE disciplinas SET nome='$nome',periodo = '$periodo', preRequisito='$preRequisito', creditos='$creditos' WHERE nome='$nomeOld'";
 
         mysqli_query($conn,$sql) or die("Erro na tentativa de alteração! Verifique os valores novamente.");
-        mysqli_close($conn);
         echo "<div class='container'><h4>Disciplina alterada com sucesso!</h4></div>";
     }
 ?>
@@ -44,16 +43,16 @@
         </nav>
         <br><br>
         <div class="nav" align="center">
-            <h3>Escolha uma Disciplina</h3>
+            <h3>Selecione a disciplina que deseja alterar</h3>
         </div>
 
         <?php
-            $sql = "SELECT * FROM disciplinas";
-            $result = $conn->query($sql);
             echo "<form action='AlterarDisciplina.php' method='POST'>";
             echo '<div class="form-group">';
             echo '<label for="Disciplinas">Disciplinas</label>';
             echo '<select class="form-control" name="nomeOld">';
+            $sql = "SELECT * FROM disciplinas";
+            $result = $conn->query($sql);
             while ($linha = $result->fetch_assoc()) {
                 $valor = $linha["nome"];
                 echo "<option value = '$valor'>" . $linha["nome"] . "</option>";
@@ -83,7 +82,13 @@
             echo '<div class="form-group">';
             echo '<label for="preRequisito">Pré Requisito</label>';
             echo '<select class="form-control" name="preRequisito">';
-            echo '<option value = 0>Nenhuma Opção</option>';
+            echo '<option value = "Livre">Nenhuma Opção</option>';
+            $sql = "SELECT * FROM disciplinas";
+            $result = $conn->query($sql);
+            while ($linha = $result->fetch_assoc()) {
+                $valor = $linha["nome"];
+                echo "<option value = '$valor'>" . $linha["nome"] . "</option>";
+            }
             echo '</select>';
             echo '</div>';
 

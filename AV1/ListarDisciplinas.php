@@ -36,19 +36,30 @@
         <?php
             $sql = "SELECT * FROM disciplinas";
             $result = $conn->query($sql);
-            echo "<table class='table'>";
-            echo "<tr>";
-            echo "<th scope='col'>Código</th><th scope='col'>Disciplina</th><th scope='col'>Período</th><th scope='col'>Pré Requisito</th><th scope='col'>Créditos</th>";
-            while ($linha = $result->fetch_assoc()) {
+
+            if ($result->num_rows == 0){
+                echo "<h3>Não há dados na tabela para serem exibidos</h3><br>";
+                echo "<h4>Por favor cadastre alguma disciplina.</h4>";
+                echo '<a class="btn btn-primary" href="CadastrarDisciplina.php" role="button">Cadastrar Agora</a>  ';
+                echo '<a class="btn btn-danger" href="index.html" role="button">Cancelar</a>';
+            }else{
+                echo "<table class='table'>";
                 echo "<tr>";
-                echo "<th scope='row'> " . $linha["id"] . "</th>";
-                echo "<td> " . $linha["nome"] . "</td>";
-                echo "<td> " . $linha["periodo"] . "</td>";
-                echo "<td> " . $linha["idPreRequisito"] . "</td>";
-                echo "<td> " . $linha["creditos"] . "</td>";
-                echo "<tr>";
+                echo "<th scope='col'>Código</th>";
+                echo "<th scope='col'>Disciplina</th><th scope='col'>Período</th>";
+                echo "<th scope='col'>Pré Requisito</th><th scope='col'>Créditos</th>";
+                
+                while ($linha = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<th scope='row'> " . $linha["id"] . "</th>";
+                    echo "<td> " . $linha["nome"] . "</td>";
+                    echo "<td> " . $linha["periodo"] . "</td>";
+                    echo "<td> " . $linha["preRequisito"] . "</td>";
+                    echo "<td> " . $linha["creditos"] . "</td>";
+                    echo "<tr>";
+                }
+                echo "</table>";
             }
-            echo "</table>";
         ?>
     </div>
 </body>

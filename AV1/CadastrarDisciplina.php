@@ -1,24 +1,22 @@
 <?php
+    $servidor = "localhost";
+    $usuario = "root";
+    $senha = "";
+    $nomeBanco = "DawNoiteFaeterj";
+
+    $conn = new mysqli($servidor, $usuario, $senha, $nomeBanco);
+    if ($conn->connect_error) {
+        die("Conexão com erro: " . $conn->connect_error);
+    }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $servidor = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $nomeBanco = "DawNoiteFaeterj";
-
-        $conn = new mysqli($servidor, $usuario, $senha, $nomeBanco);
-        if ($conn->connect_error) {
-            die("Conexão com erro: " . $conn->connect_error);
-        }
-
         $nome = $_POST["nome"];
         $periodo = $_POST["periodo"];
         $preRequisito = $_POST["preRequisito"];
         $creditos = $_POST["creditos"];
 
-        $sql = "Insert into DISCIPLINAS (`nome`, `periodo`, `idPreRequisito`, `creditos`) VALUES ('$nome', '$periodo', '$preRequisito', '$creditos')";
+        $sql = "Insert into DISCIPLINAS (`nome`, `periodo`, `preRequisito`, `creditos`) VALUES ('$nome', '$periodo', '$preRequisito', '$creditos')";
 
         mysqli_query($conn,$sql) or die("Erro na tentativa de inserção! Verifique os valores novamente.");
-        mysqli_close($conn);
         echo "<div class='container'><h4>Disciplina cadastrada com sucesso!</h4></div>";
     }
 ?>
@@ -67,7 +65,15 @@
                 <div class="form-group">
                     <label for="preRequisito">Pré Requisito</label>
                     <select class="form-control" name="preRequisito">
-                        <option value = 0>Nenhuma Opção</option>
+                        <option value = "Livre">Nenhuma Opção</option>
+                        <?php
+                            $sql = "SELECT * FROM disciplinas";
+                            $result = $conn->query($sql);
+                            while ($linha = $result->fetch_assoc()) {
+                                $valor = $linha["nome"];
+                                echo "<option value = '$valor'>" . $linha["nome"] . "</option>";
+                            }
+                        ?>
                     </select>
                 </div>
 

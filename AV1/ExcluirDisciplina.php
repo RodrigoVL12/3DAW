@@ -1,21 +1,33 @@
 <?php
+    $servidor = "localhost";
+    $usuario = "root";
+    $senha = "";
+    $nomeBanco = "DawNoiteFaeterj";
+
+    $conn = new mysqli($servidor, $usuario, $senha, $nomeBanco);
+    if ($conn->connect_error) {
+        die("<br><h2>Conexão com erro: " . $conn->connect_error . "</h2>");
+    }
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $servidor = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $nomeBanco = "DawNoiteFaeterj";
-
-        $conn = new mysqli($servidor, $usuario, $senha, $nomeBanco);
-        if ($conn->connect_error) {
-            die("Conexão com erro: " . $conn->connect_error);
-            return;
-        }
-
         $nome = $_POST["nome"];
-        $periodo = $_POST["periodo"];
-        $
-        $sql = "Insert into DISCIPLINA (`id`, `nome`, `periodo`, `preRequisito`, `creditos`) VALUES ()";
-        $result = $conn->query($sql);
+        $valido = TRUE;
+
+        $verificacao = "SELECT * FROM disciplinas";
+        $result = $conn->query($verificacao);
+        while ($linha = $result->fetch_assoc()) {
+            $valor = $linha["preRequisito"];
+            if ($valor == $nome){
+                echo '<div class="container"><h3>Não foi possível excluir a disciplina ' . $nome . ', pois ela é pre requisito de ' . $linha["nome"] . '</h3>';
+                $valido = FALSE;
+                break;
+            }
+        }
+        if ($valido == TRUE){
+            $sql = "DELETE FROM disciplinas WHERE nome='$nome'";
+            mysqli_query($conn,$sql) or die("Erro na tentativa de exclusão! Verifique os valores novamente.");
+            echo "<div class='container'><h4>Disciplina excluída com sucesso!</h4></div>";
+        }
     }
 ?>
 
@@ -39,40 +51,25 @@
         </nav>
         <br><br>
         <div class="nav" align="center">
-            <h3>Excluir Disciplina</h3>
+            <h3>Selecione a disciplina que deseja excluir</h3>
         </div>
-        <form action="cadastraDisciplina.php" method="POST">
-            <div class="form-row">
 
-            <div class="form-group">
-              <label for="Disciplina1">Nome</label>
-              <input type="text" class="form-control" id="Disciplina1" placeholder="Nome da Disciplina" name="nome">
-            </div>
-
-            <div class="form-group">
-                <label for="periodo">Período</label>
-                <select class="form-control" name="periodo">
-                    <option value = 1>1</option>
-                    <option value = 2>2</option>
-                    <option value = 3>3</option>
-                    <option value = 4>4</option>
-                    <option value = 5>5</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="preReuisito">Pré Requisito</label>
-                <select class="form-control" name="preRequisito">
-                    <option value = 0>Nenhuma Opção</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-            <label for="creditos">Créditos</label>
-            <input type="number" class="form-control" id="creditos" placeholder="Quantidade de créditos" name="creditos"><br><br>
-            </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </form>
+        <?php
+            echo "<form action='ExcluirDisciplina.php' method='POST'>";
+            echo '<div class="form-group">';
+            echo '<label for="Disciplinas">Disciplinas</label>';
+            echo '<select class="form-control" name="nome">';
+            $sql = "SELECT * FROM disciplinas";
+            $result = $conn->query($sql);
+            while ($linha = $result->fetch_assoc()) {
+                $valor = $linha["nome"];
+                echo "<option value = '$valor'>" . $linha["nome"] . "</option>";
+            }
+            echo "</select><br>";
+            echo '<button type="submit" class="btn btn-primary">Excluir</button>  ';
+            echo '<a class="btn btn-danger" href="index.html" role="button">Cancelar</a>';
+            echo "</div>";
+        ?>
     </div>
 </body>
 </html>
