@@ -35,14 +35,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <title>Excluir Disciplina</title>
 </head>
 <body>
     <div class="container">
         <nav id="links-menu">
             <ul class="nav navbar-nav">
-                <li><a href="index.html">Início</a></li>
+                <li><a href="../index.html">Início</a></li>
                 <li><a href="CadastrarDisciplina.php">Cadastrar Disciplina</a></li>
                 <li><a href="AlterarDisciplina.php">Alterar Disciplina</a></li>
                 <li><a href="ListarDisciplinas.php">Listar Disciplinas</a></li>
@@ -67,7 +67,7 @@
             }
             echo "</select><br>";
             echo '<button type="submit" class="btn btn-primary">Excluir</button>  ';
-            echo '<a class="btn btn-danger" href="index.html" role="button">Cancelar</a>';
+            echo '<a class="btn btn-danger" href="../index.html" role="button">Cancelar</a>';
             echo "</div>";
         ?>
     </div>
