@@ -22,11 +22,12 @@
     <div class="container">
         <nav id="links-menu">
             <ul class="nav navbar-nav">
-                <li><a href="../index.html">Início</a></li>
+                <li><a href="../index.php">Início</a></li>
                 <li><a href="CadastrarDisciplina.php">Cadastrar Disciplina</a></li>
                 <li><a href="AlterarDisciplina.php">Alterar Disciplina</a></li>
                 <li><a href="ListarDisciplinas.php">Listar Disciplinas</a></li>
                 <li><a href="ExcluirDisciplina.php">Excluir Disciplina</a></li>
+                <li><a href="../Usuarios/UploadUsuarios.php">Carregar um usuário</a></li>
             </ul>
         </nav>
         <br><br>
@@ -41,7 +42,7 @@
                 echo "<h3>Não há dados na tabela para serem exibidos</h3><br>";
                 echo "<h4>Por favor cadastre alguma disciplina.</h4>";
                 echo '<a class="btn btn-primary" href="CadastrarDisciplina.php" role="button">Cadastrar Agora</a>  ';
-                echo '<a class="btn btn-danger" href="index.html" role="button">Cancelar</a>';
+                echo '<a class="btn btn-danger" href="index.php" role="button">Cancelar</a>';
             }else{
                 echo "<table class='table'>";
                 echo "<tr>";

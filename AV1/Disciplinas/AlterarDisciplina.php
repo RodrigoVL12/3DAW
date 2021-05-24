@@ -34,11 +34,12 @@
     <div class="container">
         <nav id="links-menu">
             <ul class="nav navbar-nav">
-                <li><a href="../index.html">Início</a></li>
+                <li><a href="../index.php">Início</a></li>
                 <li><a href="CadastrarDisciplina.php">Cadastrar Disciplina</a></li>
                 <li><a href="AlterarDisciplina.php">Alterar Disciplina</a></li>
                 <li><a href="ListarDisciplinas.php">Listar Disciplinas</a></li>
                 <li><a href="ExcluirDisciplina.php">Excluir Disciplina</a></li>
+                <li><a href="../Usuarios/UploadUsuarios.php">Carregar um usuário</a></li>
             </ul>
         </nav>
         <br><br>
@@ -97,7 +98,7 @@
             echo '<input type="number" class="form-control" id="creditos" placeholder="Quantidade de créditos" name="creditos"><br><br>';
             echo '</div>';
             echo '<button type="submit" class="btn btn-primary">Alterar</button>   ';
-            echo '<a class="btn btn-danger" href="../index.html" role="button">Cancelar</a>';
+            echo '<a class="btn btn-danger" href="../index.php" role="button">Cancelar</a>';
             echo '</div>';
             echo '</form>';
         ?>
