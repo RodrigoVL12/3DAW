@@ -33,7 +33,6 @@
     {
         echo $sql . "<br>" . $e->getMessage();
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +57,7 @@
         </nav>
         <br><br>
         <div class="nav" align="center">
-            <h3>Controle de Disciplinas</h3>
+            <h3>Controle de Disciplinas e Usuários</h3>
         </div>
     </div>
 </body>

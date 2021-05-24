@@ -88,11 +88,19 @@
         </nav>
         <br><br>
         <div class="nav" align="center">
-            <h3>Upload de Usuarios</h3>
+            <h3>Upload de Usuários</h3>
+        </div>
+        <div class="nav">
+            <h4>O arquivo deve estar no formato .csv</h4>
+            <h4>As colunas do csv devem ser: nome,email,senha,tipo e perfil, conforme o exemplo abaixo:</h4>
+        </div>
+        <div class="nav" align="center">
+            <img src="exemploCSV.png">
         </div>
         <form enctype="multipart/form-data" action="UploadUsuarios.php" method="POST">
             <input type="file" name="arquivo"/><br>
             <button type="submit" class="btn btn-primary">Carregar Arquivo</button>
+            <a class="btn btn-danger" href="../index.php" role="button">Cancelar</a>
         </form>
     </div>
 </body>
