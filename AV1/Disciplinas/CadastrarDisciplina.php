@@ -37,7 +37,8 @@
                 <li><a href="AlterarDisciplina.php">Alterar Disciplina</a></li>
                 <li><a href="ListarDisciplinas.php">Listar Disciplinas</a></li>
                 <li><a href="ExcluirDisciplina.php">Excluir Disciplina</a></li>
-                <li><a href="../Usuarios/UploadUsuarios.php">Carregar um usuário</a></li>
+                <li><a href="../Usuarios/UploadUsuarios.php">Carregar Usuário</a></li>
+                <li><a href="../Usuarios/ListarUsuarios.php">Listar Usuários</a></li>
             </ul>
         </nav>
         <br><br>

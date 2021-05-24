@@ -52,7 +52,8 @@
                 <li><a href="Disciplinas/AlterarDisciplina.php">Alterar Disciplina</a></li>
                 <li><a href="Disciplinas/ListarDisciplinas.php">Listar Disciplinas</a></li>
                 <li><a href="Disciplinas/ExcluirDisciplina.php">Excluir Disciplina</a></li>
-                <li><a href="Usuarios/UploadUsuarios.php">Carregar um usuário</a></li>
+                <li><a href="Usuarios/UploadUsuarios.php">Carregar Usuário</a></li>
+                <li><a href="Usuarios/ListarUsuarios.php">Listar Usuários</a></li>
             </ul>
         </nav>
         <br><br>
