@@ -52,7 +52,7 @@
                 
                 while ($linha = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<th scope='row'> " . $linha["id"] . "</th>";
+                    echo "<th scope='row'> " . $linha["ID"] . "</th>";
                     echo "<td> " . $linha["nome"] . "</td>";
                     echo "<td> " . $linha["periodo"] . "</td>";
                     echo "<td> " . $linha["preRequisito"] . "</td>";
