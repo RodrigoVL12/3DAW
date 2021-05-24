@@ -95,7 +95,7 @@
             <h4>As colunas do csv devem ser: nome,email,senha,tipo e perfil, conforme o exemplo abaixo:</h4>
         </div>
         <div class="nav" align="center">
-            <img src="exemploCSV.png">
+            <img src="img/exemploCSV.png">
         </div>
         <form enctype="multipart/form-data" action="UploadUsuarios.php" method="POST">
             <input type="file" name="arquivo"/><br>
