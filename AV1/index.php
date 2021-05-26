@@ -4,6 +4,7 @@
     $senha = "";
     $nomeBanco = "dawnoitefaeterj";
 
+    //Criando Banco e Tabelas, caso não exista:
     try {
         $conn = new PDO("mysql:host=$servidor", $usuario, $senha);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

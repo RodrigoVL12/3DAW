@@ -38,9 +38,12 @@
             $sql = "SELECT * FROM disciplinas";
             $result = $conn->query($sql);
 
+            //Caso o número de disciplinas cadastradas seja igual a zero, 
+            //será retornada uma mensagem com o devido aviso, caso contrário,
+            //será exibida uma tabela com todas.
             if ($result->num_rows == 0){
                 echo "<h3>Não há dados na tabela para serem exibidos</h3><br>";
-                echo "<h4>Por favor cadastre alguma disciplina.</h4>";
+                echo "<h4>Por favor, cadastre alguma disciplina.</h4>";
                 echo '<a class="btn btn-primary" href="CadastrarDisciplina.php" role="button">Cadastrar Agora</a>  ';
                 echo '<a class="btn btn-danger" href="index.php" role="button">Cancelar</a>';
             }else{
