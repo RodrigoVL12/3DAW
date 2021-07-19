@@ -47,40 +47,54 @@
             <div class="form-row">
 
                 <div class="form-group">
-                <label for="Produto">Nome</label>
-                <input type="text" class="form-control" id="Produto" placeholder="Nome da Produto" name="nome">
+                <label for="nome">Nome do produto</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome do Produto" name="nome">
+                </div>
+
+                <label for="codigo_barras">Código de Barras</label>
+                <input type="number" class="form-control" id="codigo_barras" placeholder="Código de Barras" name="codigo_barras">
                 </div>
 
                 <div class="form-group">
-                    <label for="periodo">Período</label>
-                    <select class="form-control" name="periodo">
-                        <option value = 1>1</option>
-                        <option value = 2>2</option>
-                        <option value = 3>3</option>
-                        <option value = 4>4</option>
-                        <option value = 5>5</option>
-                    </select>
+                <label for="fabricante">Fabricante</label>
+                <input type="text" class="form-control" id="fabricante" placeholder="Fabricante" name="fabricante">
                 </div>
 
                 <div class="form-group">
-                    <label for="preRequisito">Pré Requisito</label>
-                    <select class="form-control" name="preRequisito">
-                        <option value = "Livre">Nenhuma Opção</option>
-                        <?php
-                            $sql = "SELECT * FROM Produtos";
-                            $result = $conn->query($sql);
-                            while ($linha = $result->fetch_assoc()) {
-                                $valor = $linha["nome"];
-                                echo "<option value = '$valor'>" . $linha["nome"] . "</option>";
-                            }
-                        ?>
-                    </select>
+                <label for="preco">Preço</label>
+                <input type="number" class="form-control" id="preco" placeholder="Preço" name="preco">
                 </div>
 
                 <div class="form-group">
-                    <label for="creditos">Créditos</label>
-                    <input type="number" class="form-control" id="creditos" placeholder="Quantidade de créditos" name="creditos"><br><br>
+                <label for="quantidade_estoque">Quantidade em Estoque</label>
+                <input type="number" class="form-control" id="quantidade_estoque" placeholder="Quantidade em Estoque" name="quantidade_estoque">
                 </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select class="form-control" name="categoria"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Tipo</label>
+                    <select class="form-control" name="tipo"></select>
+                </div>
+
+                <div class="form-group">
+                <label for="peso">Peso</label>
+                <input type="number" class="form-control" id="peso" placeholder="Peso em gramas" name="peso">
+                </div>
+
+                <div class="form-group">
+                <label for="data">Data de entrada</label>
+                <input type="date" class="form-control" id="data" placeholder="Data de entrada" name="data">
+                </div>
+
+                <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+                </div>
+
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
                 <a class="btn btn-danger" href="../index.php" role="button">Cancelar</a>
             </div>

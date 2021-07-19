@@ -65,7 +65,7 @@
             echo '<div class="form-row">';
             echo '<div class="form-group">';
             echo '<label for="Produto">Nome</label>';
-            echo '<input type="text" class="form-control" id="Produto" placeholder="Nome da Produto" name="nome">';
+            echo '<input type="text" class="form-control" id="Produto" placeholder="Nome do Produto" name="nome">';
             echo '</div>';
 
             echo '<div class="form-group">';
