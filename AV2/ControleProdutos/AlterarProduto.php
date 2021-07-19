@@ -2,7 +2,7 @@
     $servidor = "localhost";
     $usuario = "root";
     $senha = "";
-    $nomeBanco = "DawNoiteFaeterj";
+    $nomeBanco = "daw3AV2";
 
     $conn = new mysqli($servidor, $usuario, $senha, $nomeBanco);
     if ($conn->connect_error) {
@@ -16,10 +16,10 @@
         $preRequisito = $_POST["preRequisito"];
         $creditos = $_POST["creditos"];
 
-        $sql = "UPDATE disciplinas SET nome='$nome',periodo = '$periodo', preRequisito='$preRequisito', creditos='$creditos' WHERE nome='$nomeOld'";
+        $sql = "UPDATE PRODUTOS SET nome='$nome',periodo = '$periodo', preRequisito='$preRequisito', creditos='$creditos' WHERE nome='$nomeOld'";
 
         mysqli_query($conn,$sql) or die("Erro na tentativa de alteração! Verifique os valores novamente.");
-        echo "<div class='container'><h4>Disciplina alterada com sucesso!</h4></div>";
+        echo "<div class='container'><h4>Produto alterada com sucesso!</h4></div>";
     }
 ?>
 
@@ -28,32 +28,30 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <title>Alterar Disciplina</title>
+    <title>Alterar Produto</title>
 </head>
 <body>
     <div class="container">
         <nav id="links-menu">
             <ul class="nav navbar-nav">
                 <li><a href="../index.php">Início</a></li>
-                <li><a href="CadastrarDisciplina.php">Cadastrar Disciplina</a></li>
-                <li><a href="AlterarDisciplina.php">Alterar Disciplina</a></li>
-                <li><a href="ListarDisciplinas.php">Listar Disciplinas</a></li>
-                <li><a href="ExcluirDisciplina.php">Excluir Disciplina</a></li>
-                <li><a href="../Usuarios/UploadUsuarios.php">Carregar Usuário</a></li>
-                <li><a href="../Usuarios/ListarUsuarios.php">Listar Usuários</a></li>
+                <li><a href="CadastrarProduto.php">Cadastrar Produto</a></li>
+                <li><a href="AlterarProduto.php">Alterar Produto</a></li>
+                <li><a href="ListarProdutos.php">Listar Produtos</a></li>
+                <li><a href="ExcluirProduto.php">Excluir Produto</a></li>
             </ul>
         </nav>
         <br><br>
         <div class="nav" align="center">
-            <h3>Selecione a disciplina que deseja alterar</h3>
+            <h3>Selecione a Produto que deseja alterar</h3>
         </div>
 
         <?php
-            echo "<form action='AlterarDisciplina.php' method='POST'>";
+            echo "<form action='AlterarProduto.php' method='POST'>";
             echo '<div class="form-group">';
-            echo '<label for="Disciplinas">Disciplinas</label>';
+            echo '<label for="Produtos">Produtos</label>';
             echo '<select class="form-control" name="nomeOld">';
-            $sql = "SELECT * FROM disciplinas";
+            $sql = "SELECT * FROM Produtos";
             $result = $conn->query($sql);
             while ($linha = $result->fetch_assoc()) {
                 $valor = $linha["nome"];
@@ -66,8 +64,8 @@
             echo '</div>';
             echo '<div class="form-row">';
             echo '<div class="form-group">';
-            echo '<label for="Disciplina">Nome</label>';
-            echo '<input type="text" class="form-control" id="Disciplina" placeholder="Nome da Disciplina" name="nome">';
+            echo '<label for="Produto">Nome</label>';
+            echo '<input type="text" class="form-control" id="Produto" placeholder="Nome da Produto" name="nome">';
             echo '</div>';
 
             echo '<div class="form-group">';
@@ -85,7 +83,7 @@
             echo '<label for="preRequisito">Pré Requisito</label>';
             echo '<select class="form-control" name="preRequisito">';
             echo '<option value = "Livre">Nenhuma Opção</option>';
-            $sql = "SELECT * FROM disciplinas";
+            $sql = "SELECT * FROM Produtos";
             $result = $conn->query($sql);
             while ($linha = $result->fetch_assoc()) {
                 $valor = $linha["nome"];
