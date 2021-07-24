@@ -40,14 +40,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <title>Loja Ximbolê Bahiano</title>
+    <title>Loja Ximbolé Bahiano</title>
 </head>
 <body>
     <div class="container">
         <nav id="links-menu">
             <ul class="nav navbar-nav">
                 <li><a href="index.php">Início</a></li>
-                <li><a href="ControleProdutos/CadastrarProduto.php">Cadastrar Produto</a></li>
+                <li><a href="ControleProdutos/CadastrarProduto.html">Cadastrar Produto</a></li>
                 <li><a href="ControleProdutos/AlterarProduto.php">Alterar Produto</a></li>
                 <li><a href="ControleProdutos/ListarProdutos.php">Listar Produtos</a></li>
                 <li><a href="ControleProdutos/ExcluirProduto.php">Excluir Produto</a></li>

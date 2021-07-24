@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <title>Cadastrar Produto</title>
+</head>
+<body>
+    <div class="container">
+        <nav id="links-menu">
+            <ul class="nav navbar-nav">
+                <li><a href="../index.php">Início</a></li>
+                <li><a href="CadastrarProduto.html">Cadastrar Produto</a></li>
+                <li><a href="AlterarProduto.php">Alterar Produto</a></li>
+                <li><a href="ListarProdutos.php">Listar Produtos</a></li>
+                <li><a href="ExcluirProduto.php">Excluir Produto</a></li>
+            </ul>
+        </nav>
+        <br><br>
+        <div class="nav" align="center">
+            <h3>Cadastrar Produto</h3>
+        </div>
+        <form action="" id="form_produto">
+            <div class="form-row">
+
+                <div class="form-group">
+                <label for="nome">Nome do produto</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome do Produto" name="nome">
+                </div>
+
+                <label for="codigo_barras">Código de Barras</label>
+                <input type="number" class="form-control" id="codigo_barras" placeholder="Código de Barras" name="codigo_barras">
+                </div>
+
+                <div class="form-group">
+                <label for="fabricante">Fabricante</label>
+                <input type="text" class="form-control" id="fabricante" placeholder="Fabricante" name="fabricante">
+                </div>
+
+                <div class="form-group">
+                <label for="preco">Preço</label>
+                <input type="number" class="form-control" id="preco" placeholder="Preço" name="preco">
+                </div>
+
+                <div class="form-group">
+                <label for="quantidade_estoque">Quantidade em Estoque</label>
+                <input type="number" class="form-control" id="quantidade_estoque" placeholder="Quantidade em Estoque" name="quantidade_estoque">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select class="form-control" id="categoria" name="categoria"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Tipo</label>
+                    <select class="form-control" id="tipo" name="tipo"></select>
+                </div>
+
+                <div class="form-group">
+                <label for="peso">Peso</label>
+                <input type="number" class="form-control" id="peso" placeholder="Peso em gramas" name="peso">
+                </div>
+
+                <div class="form-group">
+                <label for="data">Data de entrada</label>
+                <input type="date" class="form-control" id="data" placeholder="Data de entrada" name="data">
+                </div>
+
+                <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+                </div>
+
+                <div class="form-group">
+                <label for="img">Imagem</label>
+                <input type="text" class="form-control" id="img" placeholder="Link da Imagem" name="img">
+                </div>
+
+                <button type="submit" class="btn btn-primary" onclick="inserirProduto()">Cadastrar</button>
+                <a class="btn btn-danger" href="../index.php" role="button">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function inserirProduto() {
+            let objProduto = document.getElementById("form_produto");
+            let msg = validarProduto(objProduto);
+            if (msg == "") {
+                let xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        //let obj = JSON.parse(this.responseText);
+                        document.getElementById("resposta").innerHTML = this.responseText;
+                    }
+                }
+                xmlHttp.open("GET", "https://localhost/3daw/AV2/CadastrarProduto.php?nome=" + objProduto.nome.value +
+                    "&codigo_barras=" + objProduto.codigo_barras.value + "&fabricante=" + objProduto.fabricante.value + "&preco=" +
+                    objProduto.preco.value + "&quantidade_estoque=" + objProduto.quantidade_estoque.value + "&categoria" +
+                    objProduto.categoria.value + "&tipo=" + objProduto.tipo.value + "&peso=" + objProduto.peso.value + "&data=" + 
+                    objProduto.data.value + "&descricao=" + objProduto.descricao.value + "&img=" + objProduto.img.value, true
+                );
+                xmlHttp.send();
+                console.log("requisição enviada");
+            }
+            document.getElementById("resposta").innerHTML = msg;
+        }
+
+        function validarProduto(fProduto) {
+            let objValidForm = document.getElementById("form_produto");
+            let nome = objValidForm.nome.value;
+            let codigo_barras = objValidForm.codigo_barras.value;
+            let fabricante = objValidForm.fabricante.value;
+            let preco = objValidForm.preco.value;
+            let quantidade_estoque = objValidForm.quantidade_estoque.value;
+            let peso = objValidForm.peso.value;
+            let data = objValidForm.data.value;
+            let msg2 = "";
+
+            if (nome ===""){
+                msg2 = "Preencha o campo nome. \n";
+            }
+            if (codigo_barras ===""){
+                msg2 = msg2 + "Preencha o campo Código de Barras. \n";
+            }
+            if (fabricante ===""){
+                msg2 = msg2 + "Preencha o campo Fabricante. \n";
+            }
+            if (preco ===""){
+                msg2 = msg2 + "Preencha o campo Preço. \n";
+            }
+            if (quantidade_estoque ===""){
+                msg2 = msg2 + "Preencha o campo Quantidade em Estoque. \n";
+            }
+            if (peso ===""){
+                msg2 = msg2 + "Preencha o campo Peso. \n";
+            }
+            if (data ===""){
+                msg2 = msg2 + "Preencha o campo Data. \n";
+            }
+            if (msg2 != ""){
+                alert(msg2);
+            }
+            return msg2;
+        }
+    </script>
+
+</body>
+</html>
